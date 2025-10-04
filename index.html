@@ -3,38 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>foundinspace.love</title>
+    <title>Found in Space</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background: url('golden_frog.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
+            background-color: #87cefa;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
-
+        img {
+            max-width: 90%;
+            height: auto;
+        }
         .refresh-button {
-            margin-bottom: 40px;
-            padding: 12px 24px;
-            font-size: 16px;
-            color: white;
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: black;
+            color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 12px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-
         .refresh-button:hover {
-            background-color: #333;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <a href="/" class="refresh-button">Refresh</a>
+    <img src="golden-frog.jpg" alt="Golden Frog">
+    <a href="https://foundinspace.love">
+        <button class="refresh-button">Refresh</button>
+    </a>
 </body>
 </html>

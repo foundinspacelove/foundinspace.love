@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Found in Space</title>
-    <style>
-        body {
-            background-color: #87cefa;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        img {
-            max-width: 90%;
-            height: auto;
-        }
-        .refresh-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .refresh-button:hover {
-            opacity: 0.8;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>foundinspace.love</title>
+  <style>
+    body {
+      background-color: #3475EF;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #222;
+    }
+  </style>
 </head>
 <body>
-    <img src="golden-frog.jpg" alt="Golden Frog">
-    <a href="https://i.postimg.cc/Bvd6fCCs/IMG-1062.jpg">
-        <button class="refresh-button">Refresh</button>
-    </a>
+  <img src="https://i.postimg.cc/Bvd6fCCs/IMG-1062.jpg" alt="Golden Frog" />
+  <button onclick="location.reload()">Refresh</button>
 </body>
 </html>

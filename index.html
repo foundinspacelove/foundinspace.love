@@ -1,69 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Blue Dot Correction</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Codex Balancer</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #000;
       height: 100%;
-      overflow: hidden;
+      background-color: #000;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
+      overflow: hidden;
+      touch-action: manipulation;
     }
 
     .dot {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       border-radius: 50%;
       background: radial-gradient(circle, rgba(0,200,255,1) 0%, rgba(0,100,255,0.6) 60%, rgba(0,50,150,0) 100%);
-      transition: all 0.8s ease-in-out;
       box-shadow: 0 0 40px rgba(0,200,255,0.7);
+      animation: breathe 3s infinite ease-in-out;
+      transition: all 1s ease-in-out;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
     }
 
     #dot1 {
-      left: 40%;
       width: 60px;
       height: 60px;
+      top: 50%;
+      left: 45%;
+      transform: translate(-50%, -50%);
       opacity: 0.9;
     }
 
     #dot2 {
-      left: 60%;
       width: 30px;
       height: 30px;
+      top: 50%;
+      left: 55%;
+      transform: translate(-50%, -50%);
       opacity: 0.5;
     }
 
-    .corrected {
+    .equalized {
       width: 50px !important;
       height: 50px !important;
       opacity: 0.8 !important;
-      box-shadow: 0 0 30px rgba(0,200,255,0.8) !important;
+      box-shadow: 0 0 30px rgba(0,200,255,0.9) !important;
     }
   </style>
 </head>
 <body>
-  <div class="container" onclick="equalizeDots()">
-    <div id="dot1" class="dot"></div>
-    <div id="dot2" class="dot"></div>
-  </div>
+  <div id="dot1" class="dot"></div>
+  <div id="dot2" class="dot"></div>
+
+  <!-- Sound effect -->
+  <audio id="ping" preload="auto">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Synthesized_chime.ogg" type="audio/ogg">
+    <!-- fallback -->
+  </audio>
 
   <script>
-    function equalizeDots() {
-      document.getElementById('dot1').classList.add('corrected');
-      document.getElementById('dot2').classList.add('corrected');
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
+    const sound = document.getElementById('ping');
+
+    function balance() {
+      dot1.classList.add('equalized');
+      dot2.classList.add('equalized');
+      if (navigator.vibrate) navigator.vibrate(50);
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
+      }
     }
+
+    document.body.addEventListener('click', balance);
+    document.body.addEventListener('touchstart', balance);
   </script>
 </body>
 </html>

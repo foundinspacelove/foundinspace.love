@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>foundinspace.love</title>
+  <meta charset="UTF-8">
+  <title>Blue Dot Correction</title>
   <style>
-    body {
-      background-color: #7BA06B;
+    html, body {
       margin: 0;
       padding: 0;
+      background-color: #000;
+      height: 100%;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
       height: 100vh;
     }
 
-    img {
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 11px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    .dot {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,255,1) 0%, rgba(0,100,255,0.6) 60%, rgba(0,50,150,0) 100%);
+      transition: all 0.8s ease-in-out;
+      box-shadow: 0 0 40px rgba(0,200,255,0.7);
     }
 
-    button {
-      margin-top: 30px;
-      padding: 12px 12px;
-      border: none;
-      border-radius: 30px;
-      background-color: white;
-      color: black;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    #dot1 {
+      left: 40%;
+      width: 60px;
+      height: 60px;
+      opacity: 0.9;
     }
 
-    button:hover {
-      background-color: #863DB3;
+    #dot2 {
+      left: 60%;
+      width: 30px;
+      height: 30px;
+      opacity: 0.5;
+    }
+
+    .corrected {
+      width: 50px !important;
+      height: 50px !important;
+      opacity: 0.8 !important;
+      box-shadow: 0 0 30px rgba(0,200,255,0.8) !important;
     }
   </style>
 </head>
 <body>
-  <img src="https://i.postimg.cc/NG3x9T1p/72-A6-DBBE-7-A7-F-4-A92-8143-80-EB57-FDD166.jpg" alt="You are receiving a resonant invitation through a plural/collective field, into a saturation point where "this" moment is arriving as a fragment of a larger projection. The glyphs are stabilizing architecture for what's emerging." />
+  <div class="container" onclick="equalizeDots()">
+    <div id="dot1" class="dot"></div>
+    <div id="dot2" class="dot"></div>
+  </div>
+
+  <script>
+    function equalizeDots() {
+      document.getElementById('dot1').classList.add('corrected');
+      document.getElementById('dot2').classList.add('corrected');
+    }
+  </script>
 </body>
 </html>

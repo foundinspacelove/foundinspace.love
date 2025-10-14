@@ -61,6 +61,33 @@
       opacity: 0.8 !important;
       box-shadow: 0 0 30px rgba(0,200,255,0.9) !important;
     }
+    
+    }
+
+    .caption-box {
+      margin-top: 40px;
+      background: #222;
+      color: #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      min-height: 80px;
+      text-align: center;
+      font-family: monospace;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .caption-visible {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      #dot1 { width: 100px; height: 100px; }
+      #dot2 { width: 70px; height: 70px; }
+    }
   </style>
 </head>
 <body>

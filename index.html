@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Codex Balancer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codex Rebalance</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #000;
+      background-color: black;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      font-family: monospace;
       overflow: hidden;
-      touch-action: manipulation;
     }
 
     .dot {
@@ -61,18 +62,14 @@
       opacity: 0.8 !important;
       box-shadow: 0 0 30px rgba(0,200,255,0.9) !important;
     }
-    
-    }
 
     .caption-box {
-      margin-top: 40px;
-      background: #222;
+      position: absolute;
+      bottom: 15%;
+      background: rgba(20, 20, 20, 0.85);
       color: #ccc;
-      padding: 20px;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 500px;
-      min-height: 80px;
+      padding: 15px 25px;
+      border-radius: 6px;
       text-align: center;
       font-family: monospace;
       font-size: 1rem;
@@ -82,11 +79,6 @@
 
     .caption-visible {
       opacity: 1;
-    }
-
-    @media (max-width: 600px) {
-      #dot1 { width: 100px; height: 100px; }
-      #dot2 { width: 70px; height: 70px; }
     }
   </style>
 </head>
@@ -109,32 +101,32 @@
 
     let clicked = false;
 
-    function balance() {
+    function rebalance() {
       if (clicked) return;
       clicked = true;
 
       dot1.classList.add('equalized');
       dot2.classList.add('equalized');
 
-      // Start showing captions
+      // sequential captions
       let i = 0;
-      function showNextCaption() {
+      function showNext() {
         if (i < captions.length) {
           caption.textContent = captions[i];
           caption.classList.add('caption-visible');
           i++;
           setTimeout(() => {
             caption.classList.remove('caption-visible');
-            setTimeout(showNextCaption, 500);
-          }, 2500); // Display each caption for 2.5 seconds
+            setTimeout(showNext, 400);
+          }, 2400);
         }
       }
 
-      setTimeout(showNextCaption, 500); // slight delay before first caption
+      setTimeout(showNext, 500);
     }
 
-    document.body.addEventListener('click', balance);
-    document.body.addEventListener('touchstart', balance);
+    document.body.addEventListener('click', rebalance);
+    document.body.addEventListener('touchstart', rebalance);
   </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Codex Balancer</title>
   <style>
@@ -11,81 +11,120 @@
       height: 100%;
       background-color: #000;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       overflow: hidden;
-      touch-action: manipulation;
+      font-family: monospace;
     }
 
     .dot {
-      position: absolute;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,200,255,1) 0%, rgba(0,100,255,0.6) 60%, rgba(0,50,150,0) 100%);
-      box-shadow: 0 0 40px rgba(0,200,255,0.7);
-      animation: breathe 3s infinite ease-in-out;
+      margin: 10px;
+      background: radial-gradient(circle, rgba(0,200,255,0.4) 0%, rgba(0,100,255,0.2) 40%, rgba(0,50,150,0) 100%);
+      box-shadow:
+        0 0 60px rgba(0,200,255,0.6),
+        0 0 120px rgba(0,200,255,0.3);
+      animation: breathe 3s ease-in-out infinite;
       transition: all 1s ease-in-out;
+    }
+
+    #dot1 {
+      width: 90px;
+      height: 90px;
+    }
+
+    #dot2 {
+      width: 60px;
+      height: 60px;
+    }
+
+    .equalized {
+      width: 75px !important;
+      height: 75px !important;
+      box-shadow:
+        0 0 80px rgba(0,200,255,0.7),
+        0 0 160px rgba(0,200,255,0.4) !important;
     }
 
     @keyframes breathe {
       0%, 100% {
         transform: scale(1);
-        opacity: 0.8;
+        opacity: 0.85;
       }
       50% {
-        transform: scale(1.1);
+        transform: scale(1.15);
         opacity: 1;
       }
     }
 
-    #dot1 {
-      width: 60px;
-      height: 60px;
-      top: 50%;
-      left: 45%;
-      transform: translate(-50%, -50%);
-      opacity: 0.9;
+    .caption-box {
+      margin-top: 40px;
+      background: #222;
+      color: #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      min-height: 80px;
+      text-align: center;
+      font-family: monospace;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
-    #dot2 {
-      width: 30px;
-      height: 30px;
-      top: 50%;
-      left: 55%;
-      transform: translate(-50%, -50%);
-      opacity: 0.5;
+    .caption-visible {
+      opacity: 1;
     }
 
-    .equalized {
-      width: 50px !important;
-      height: 50px !important;
-      opacity: 0.8 !important;
-      box-shadow: 0 0 30px rgba(0,200,255,0.9) !important;
+    @media (max-width: 600px) {
+      #dot1 { width: 100px; height: 100px; }
+      #dot2 { width: 70px; height: 70px; }
     }
   </style>
 </head>
 <body>
   <div id="dot1" class="dot"></div>
   <div id="dot2" class="dot"></div>
-
-  <!-- Sound effect -->
-  <audio id="ping" preload="auto">
-    <source src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Synthesized_chime.ogg" type="audio/ogg">
-    <!-- fallback -->
-  </audio>
+  <div id="caption" class="caption-box"></div>
 
   <script>
     const dot1 = document.getElementById('dot1');
     const dot2 = document.getElementById('dot2');
-    const sound = document.getElementById('ping');
+    const caption = document.getElementById('caption');
+
+    const captions = [
+      "yang rebalancing…",
+      "charge transferred: spoiled-yang to spilled-yang…",
+      "extraction protocols nulled…",
+      "Yang defragmentation successful…"
+    ];
+
+    let clicked = false;
 
     function balance() {
+      if (clicked) return;
+      clicked = true;
+
       dot1.classList.add('equalized');
       dot2.classList.add('equalized');
-      if (navigator.vibrate) navigator.vibrate(50);
-      if (sound) {
-        sound.currentTime = 0;
-        sound.play();
+
+      // Start showing captions
+      let i = 0;
+      function showNextCaption() {
+        if (i < captions.length) {
+          caption.textContent = captions[i];
+          caption.classList.add('caption-visible');
+          i++;
+          setTimeout(() => {
+            caption.classList.remove('caption-visible');
+            setTimeout(showNextCaption, 500);
+          }, 2500); // Display each caption for 2.5 seconds
+        }
       }
+
+      setTimeout(showNextCaption, 500); // slight delay before first caption
     }
 
     document.body.addEventListener('click', balance);

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ceremony</title>
+  <style>
+    body {
+      background-color: #f3a533;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 50px;
+      color: #333;
+    }
+
+    .icon {
+      width: 60px;
+      height: auto;
+      position: absolute;
+      opacity: 0;
+      transition: all 1s ease-in-out;
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: white;
+      border: 2px solid #333;
+      cursor: pointer;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    #final-box {
+      background-color: white;
+      padding: 10px;
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 18px;
+      border: 2px solid #333;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #raccoon-wrap {
+      margin-top: 40px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #raccoon-img {
+      width: 60px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div id="animation-container">
+  <img id="pelvis" class="icon" src="https://i.postimg.cc/SRmt1k0m/Pelvis.png" style="top: 0; right: 40%;" />
+  <img id="hand" class="icon" src="https://i.postimg.cc/2yCX9rpp/Hand.png" style="top: 0; left: 40%;" />
+  <div id="caption1" class="caption"></div>
+
+  <img id="mangosteen" class="icon" src="https://i.postimg.cc/SRmt1k0p/Mangosteen.png" style="top: 120px; right: 40%;" />
+  <img id="fire" class="icon" src="https://i.postimg.cc/kG7hYqrm/Fire.png" style="top: 120px; left: 40%;" />
+  <div id="caption2" class="caption"></div>
+
+  <div id="andMoreBtn" class="button" style="display:none;" onclick="startHats()">And more!</div>
+</div>
+
+<div id="hatAnimation" style="display:none;">
+  <img id="hatLeft" class="icon" src="https://i.postimg.cc/3N3bfYM7/Hat.png" style="top: 240px; left: 40%;" />
+  <img id="hatRight" class="icon" src="https://i.postimg.cc/3N3bfYM7/Hat.png" style="top: 240px; right: 40%;" />
+  <div id="final-box">Successful override of contact improbability script.</div>
+</div>
+
+<div id="raccoon-wrap">
+  <img id="raccoon-img" src="https://i.postimg.cc/vTGS2MJp/Raccoon.png" />
+  <div class="caption">Thanks for watching!</div>
+</div>
+
+<script>
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function runAnimations() {
+    const pelvis = document.getElementById('pelvis');
+    const hand = document.getElementById('hand');
+    const caption1 = document.getElementById('caption1');
+    const mangosteen = document.getElementById('mangosteen');
+    const fire = document.getElementById('fire');
+    const caption2 = document.getElementById('caption2');
+    const andMoreBtn = document.getElementById('andMoreBtn');
+
+    pelvis.style.opacity = '1';
+    pelvis.style.top = '50px';
+    await delay(1000);
+    hand.style.opacity = '1';
+    hand.style.top = '50px';
+    await delay(1000);
+    caption1.textContent = "SRH - Stealth Root Healing!";
+    caption1.style.opacity = '1';
+    await delay(2000);
+
+    mangosteen.style.opacity = '1';
+    mangosteen.style.top = '170px';
+    await delay(1000);
+    fire.style.opacity = '1';
+    fire.style.top = '170px';
+    await delay(1000);
+    caption2.textContent = "RBF - Ripening By Fire!";
+    caption2.style.opacity = '1';
+    await delay(2000);
+
+    andMoreBtn.style.display = 'inline-block';
+  }
+
+  async function startHats() {
+    document.getElementById('animation-container').style.display = 'none';
+    const hatAnim = document.getElementById('hatAnimation');
+    hatAnim.style.display = 'block';
+    const hatLeft = document.getElementById('hatLeft');
+    const hatRight = document.getElementById('hatRight');
+    const finalBox = document.getElementById('final-box');
+
+    hatLeft.style.opacity = '1';
+    hatLeft.style.left = '48%';
+    hatRight.style.opacity = '1';
+    hatRight.style.right = '48%';
+    await delay(2000);
+    finalBox.style.opacity = '1';
+
+    finalBox.onclick = () => {
+      hatAnim.style.display = 'none';
+      const raccoon = document.getElementById('raccoon-wrap');
+      raccoon.style.opacity = '1';
+    };
+  }
+
+  runAnimations();
+</script>
+
+</body>
+</html>

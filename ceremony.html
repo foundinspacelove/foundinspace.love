@@ -224,8 +224,10 @@
 
 <script>
   function showStep2() {
+    // Reveal second animation and caption
     document.getElementById("step2").classList.remove("hidden");
     document.getElementById("caption2").classList.add("show");
+
     setTimeout(() => {
       document.getElementById("andMoreContainer").classList.remove("hidden");
     }, 1500);
@@ -244,8 +246,13 @@
     document.getElementById("raccoon").style.display = 'block';
   }
 
-  // Animate second step after a short delay
-  setTimeout(showStep2, 2000);
+  // Show first caption after slight delay
+  setTimeout(() => {
+    document.getElementById("caption1").classList.add("show");
+
+    // Then show step 2 animation
+    setTimeout(showStep2, 2000);
+  }, 1000);
 </script>
 
 </body>

@@ -110,118 +110,6 @@
   <div class="caption show">Thanks for watching!</div>
 </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Ceremony</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f3a533;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      color: #333;
-      text-align: center;
-    }
-
-    .icon-pair {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin: 30px 0;
-    }
-
-    .icon {
-      width: 70px;
-      height: auto;
-      animation: bounce 1.2s infinite alternate;
-    }
-
-    .reverse {
-      animation-direction: alternate-reverse;
-    }
-
-    .caption {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .show {
-      opacity: 1;
-    }
-
-    .button {
-      padding: 10px 20px;
-      background: white;
-      border: 2px solid #333;
-      font-size: 18px;
-      margin-top: 30px;
-      cursor: pointer;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    @keyframes bounce {
-      from { transform: translateY(0px); }
-      to { transform: translateY(-20px); }
-    }
-
-    #raccoon {
-      width: 80px;
-      margin-top: 40px;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-
-<div id="step1">
-  <div class="icon-pair">
-    <img src="https://i.postimg.cc/2yCX9rpp/Hand.png" class="icon reverse" />
-    <img src="https://i.postimg.cc/SRmt1k0m/Pelvis.png" class="icon" />
-  </div>
-  <div id="caption1" class="caption">SRH – Stealth Root Healing!</div>
-</div>
-
-<div id="step2" class="hidden">
-  <div class="icon-pair">
-    <img src="https://i.postimg.cc/kG7hYqrm/Fire.png" class="icon reverse" />
-    <img src="https://i.postimg.cc/SRmt1k0p/Mangosteen.png" class="icon" />
-  </div>
-  <div id="caption2" class="caption">RBF – Ripening By Fire!</div>
-</div>
-
-<div id="andMoreContainer" class="hidden">
-  <button class="button" onclick="showHats()">And more</button>
-</div>
-
-<div id="hatStep" class="hidden">
-  <div class="icon-pair">
-    <img src="https://i.postimg.cc/3N3bfYM7/Hat.png" class="icon reverse" />
-    <img src="https://i.postimg.cc/3N3bfYM7/Hat.png" class="icon" />
-  </div>
-  <div>
-    <button class="button" onclick="showRaccoon()">Successful override of contact improbability script.</button>
-  </div>
-</div>
-
-<div id="raccoonStep" class="hidden">
-  <img id="raccoon" src="https://i.postimg.cc/vTGS2MJp/Raccoon.png" />
-  <div class="caption show">Thanks for watching!</div>
-</div>
-
 <script>
   function showStep2() {
     // Reveal second animation and caption
@@ -254,9 +142,6 @@
     setTimeout(showStep2, 2000);
   }, 1000);
 </script>
-
-</body>
-</html>
 
 </body>
 </html>

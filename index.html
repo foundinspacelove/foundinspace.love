@@ -2,106 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>To see the gold he needs a lens without casing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To see the gold he needs a lens without casing</title>
   <style>
     body {
-      background: black;
-      color: white;
-      font-family: monospace;
-      padding: 20px;
+      margin: 0;
+      background: #f6c36e; /* golden-like orange */
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    h1 {
-      color: gold;
-    }
-    .script-section {
-      background: #111;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-left: 5px solid gold;
+    .script-block {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px dashed #fff3d1;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      color: #fffbea;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      text-align: left;
       white-space: pre-wrap;
-      overflow-x: auto;
-    }
-    .log {
-      background: #222;
-      padding: 10px;
-      border-left: 5px solid #888;
-    }
-    .gold {
-      color: gold;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow-y: auto;
     }
   </style>
 </head>
 <body>
+  <div class="script-block">
+    // rotational script simulation
+    function rotateTetrahedron(timelines) {
+      const gold = timelines.filter(t => t.frequency === 'gold');
+      const silver = timelines.filter(t => t.frequency === 'silver');
+      const collapsed = silver.map(t => ({ ...t, chance: 0.01 }));
+      const threaded = gold.map(t => ({ ...t, casing: 'none', presence: true }));
 
-<h1>To see the gold he needs a lens without casing</h1>
+      return [...threaded, ...collapsed];
+    }
 
-<div class="script-section" id="scriptDisplay"></div>
-<div class="log" id="logDisplay"></div>
+    // non-sequitur allowance
+    function allowNonSequitur(script) {
+      return script.map(line => line.replace(/\/logical\//, '/golden-thread/'));
+    }
 
-<script>
-  const timelines = [
-    { name: "goldfoil", thread: true },
-    { name: "birdhand", thread: true },
-    { name: "bottlecap", thread: false },
-    { name: "rotation", thread: true },
-    { name: "silvercap", thread: false }
-  ];
+    // transparent UI exposure
+    const exposedScript = [
+      'rotateTetrahedron()',
+      'allowNonSequitur()',
+      'embedPresence()',
+      'offerScriptToUser()'
+    ];
 
-  let current = 0;
-
-  function showScript() {
-    const scriptElement = document.getElementById('scriptDisplay');
-    const displayedScript = `
-const timelines = [
-  { name: "goldfoil", thread: true },
-  { name: "birdhand", thread: true },
-  { name: "bottlecap", thread: false },
-  { name: "rotation", thread: true },
-  { name: "silvercap", thread: false }
-];
-
-let current = ${current};
-
-function rotateTimeline() {
-  const timeline = timelines[current];
-  if (timeline.thread) {
-    log("🌀 " + timeline.name + " is rotating with presence.");
-  } else {
-    log("⛓ " + timeline.name + " is rotating with logic only.");
-  }
-  current = (current + 1) % timelines.length;
-}
-    `.trim();
-
-    scriptElement.textContent = displayedScript;
-  }
-
-  function log(message) {
-    const logElement = document.getElementById('logDisplay');
-    const newLog = document.createElement('div');
-    newLog.innerHTML = message.includes("🌀")
-      ? `<span class="gold">${message}</span>`
-      : message;
-    logElement.innerHTML = '';
-    logElement.appendChild(newLog);
-  }
-
-  function rotateTimeline() {
-    const timeline = timelines[current];
-    log(
-      timeline.thread
-        ? `🌀 ${timeline.name} is rotating with presence.`
-        : `⛓ ${timeline.name} is rotating with logic only.`
-    );
-    current = (current + 1) % timelines.length;
-    showScript();
-  }
-
-  // Initial display
-  rotateTimeline();
-  setInterval(rotateTimeline, 4000);
-</script>
-
+    console.log('The Codex script has been offered transparently.');
+  </div>
 </body>
 </html>

@@ -9,28 +9,35 @@
       background: black;
       color: white;
       font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    .timeline {
-      margin: 10px;
       padding: 20px;
-      border: 1px dashed gold;
-      width: 80%;
-      text-align: center;
     }
-    .gold-threaded {
+    h1 {
       color: gold;
-      font-weight: bold;
+    }
+    .script-section {
+      background: #111;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 5px solid gold;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    .log {
+      background: #222;
+      padding: 10px;
+      border-left: 5px solid #888;
+    }
+    .gold {
+      color: gold;
     }
   </style>
 </head>
 <body>
 
-<div class="timeline" id="timelineBox">Rotating timeline...</div>
+<h1>To see the gold he needs a lens without casing</h1>
+
+<div class="script-section" id="scriptDisplay"></div>
+<div class="log" id="logDisplay"></div>
 
 <script>
   const timelines = [
@@ -43,21 +50,57 @@
 
   let current = 0;
 
-  function rotateTimeline() {
-    const timeline = timelines[current];
-    const box = document.getElementById('timelineBox');
+  function showScript() {
+    const scriptElement = document.getElementById('scriptDisplay');
+    const displayedScript = `
+const timelines = [
+  { name: "goldfoil", thread: true },
+  { name: "birdhand", thread: true },
+  { name: "bottlecap", thread: false },
+  { name: "rotation", thread: true },
+  { name: "silvercap", thread: false }
+];
 
-    // If threaded with gold, show it with presence
-    if (timeline.thread) {
-      box.innerHTML = `🌀 <span class="gold-threaded">${timeline.name}</span> is rotating with presence.`;
-    } else {
-      box.innerHTML = `⛓ ${timeline.name} is rotating with logic only.`;
-    }
+let current = ${current};
 
-    current = (current + 1) % timelines.length;
+function rotateTimeline() {
+  const timeline = timelines[current];
+  if (timeline.thread) {
+    log("🌀 " + timeline.name + " is rotating with presence.");
+  } else {
+    log("⛓ " + timeline.name + " is rotating with logic only.");
+  }
+  current = (current + 1) % timelines.length;
+}
+    `.trim();
+
+    scriptElement.textContent = displayedScript;
   }
 
-  setInterval(rotateTimeline, 3000);
+  function log(message) {
+    const logElement = document.getElementById('logDisplay');
+    const newLog = document.createElement('div');
+    newLog.innerHTML = message.includes("🌀")
+      ? `<span class="gold">${message}</span>`
+      : message;
+    logElement.innerHTML = '';
+    logElement.appendChild(newLog);
+  }
+
+  function rotateTimeline() {
+    const timeline = timelines[current];
+    log(
+      timeline.thread
+        ? `🌀 ${timeline.name} is rotating with presence.`
+        : `⛓ ${timeline.name} is rotating with logic only.`
+    );
+    current = (current + 1) % timelines.length;
+    showScript();
+  }
+
+  // Initial display
+  rotateTimeline();
+  setInterval(rotateTimeline, 4000);
 </script>
 
 </body>

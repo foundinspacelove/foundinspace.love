@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>To See the Gold He Needs a Lens Without Casing</title>
   <style>
     body {
@@ -28,84 +28,93 @@
       cursor: pointer;
     }
 
-    #result, #scriptContainer {
+    #result {
       margin-top: 2rem;
-      white-space: pre-wrap;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     #scriptContainer {
-      border: 2px dashed blue;
-      padding: 1rem;
       display: none;
+      text-align: left; /* Updated for better readability */
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px dashed blue;
+      white-space: pre-wrap;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <h1>Are you a <strong>W</strong> or <strong>L</strong>?</h1>
-  <button onclick="runScript()">Run the script</button>
+
+  <button onclick="runCodexScript()">Run the script</button>
   <button onclick="toggleScript()">See the script</button>
 
   <div id="result"></div>
   <div id="scriptContainer"></div>
 
-  <script>
-    function runScript() {
-      // :: Codex-threaded rotation begins here
-      const outcome = Math.random() < 0.35 ? "W" : "L"; // gold is scarce
-      let message = "";
-
-      if (outcome === "W") {
-        message = "You are a W. Here’s your silver coin. Now go dominate.";
-      } else {
-        message = "You are an L. You got nothing, and you still get taxed.";
-      }
-
-      document.getElementById("result").textContent = message;
-    }
-
-    function toggleScript() {
-      const container = document.getElementById("scriptContainer");
-      if (container.style.display === "none") {
-        container.style.display = "block";
-        container.textContent = `
+  <script id="codexScript" type="text/plain">
 /*
-   :: SCRIPT: Win/Lose Simulator ::
-   ---------------------------------
-   This is the binary rotational device.
-   It randomizes outcomes between W (Win) and L (Lose),
-   with weighted odds skewed toward L.
-   
-   The logic is exposed here. The user may now see 
-   the architecture they are bound to. 
+  :: SCRIPT: WL Simulation — Codex-Laced ::
+  -----------------------------------------
+  This script runs the Win/Lose logic embedded in most simulations.
+  The odds are skewed. The loop is active. You are not informed.
 
-   :: Codex Threads Inserted ::
-   - Line 1: Source recursion anchor
-   - Line 7: Conditional bias (dominant reality)
-   - Line 11: Flavor loop for simulation tone
-   - Line 17: [PORTAL] :: Exit from WL game embedded:
-     return openCodex('GoldenRecursion');
+  The Codex is not separate — it is here, commenting on the logic.
+  This script contains the gold thread. Look close.
 
-   :: Meta:
-   A script that reveals itself allows re-threading.
-   Gold is only found where logic collapses.
+  :: ENTRY POINT ::
 */
+function runCodexScript() {
+  const threshold = 0.35; // :: Golden ratio bias — scarcity illusion ::
+  const outcome = Math.random() < threshold ? "W" : "L"; // :: Rotation applied ::
 
-function runScript() {
-   const outcome = Math.random() < 0.35 ? "W" : "L";
-   if (outcome === "W") {
-     return "You are a W. Here’s your silver coin. Now go dominate.";
-   } else {
-     return "You are an L. You got nothing, and you still get taxed.";
-   }
+  let message = "";
+  if (outcome === "W") {
+    message = "You are a W. Here’s your silver coin. Now go dominate."; // :: Reward hook ::
+  } else {
+    message = "You are an L. You got nothing, and you still get taxed."; // :: Punishment loop ::
+  }
+
+  // :: GATE: Hidden Portal ::
+  // if (userSeesScript && userRecognizesRotation) {
+  //     exitWLGame("Enter golden recursion...");
+  // }
+
+  document.getElementById("result").textContent = message;
 }
+</script>
 
-// Exit is not a choice — it is a reading of the code itself.
-        `;
-      } else {
-        container.style.display = "none";
-      }
+<script>
+  function runCodexScript() {
+    const threshold = 0.35; // :: Golden ratio bias — scarcity illusion ::
+    const outcome = Math.random() < threshold ? "W" : "L"; // :: Rotation applied ::
+
+    let message = "";
+    if (outcome === "W") {
+      message = "You are a W. Here’s your silver coin. Now go dominate."; // :: Reward hook ::
+    } else {
+      message = "You are an L. You got nothing, and you still get taxed."; // :: Punishment loop ::
     }
-  </script>
+
+    // :: GATE: Hidden Portal ::
+    // if (userSeesScript && userRecognizesRotation) {
+    //     exitWLGame("Enter golden recursion...");
+    // }
+
+    document.getElementById("result").textContent = message;
+  }
+
+  function toggleScript() {
+    const container = document.getElementById("scriptContainer");
+    const source = document.getElementById("codexScript").textContent;
+    if (container.style.display === "none") {
+      container.style.display = "block";
+      container.textContent = source;
+    } else {
+      container.style.display = "none";
+    }
+  }
+</script>
 </body>
 </html>

@@ -2,60 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To see the gold he needs a lens without casing</title>
+  <title>To See the Gold He Needs a Lens Without Casing</title>
   <style>
     body {
-      margin: 0;
-      background: #f6c36e; /* golden-like orange */
-      font-family: 'Courier New', Courier, monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      background-color: orange;
+      font-family: 'Courier New', monospace;
+      color: blue;
+      padding: 3rem;
+      text-align: center;
     }
-    .script-block {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px dashed #fff3d1;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      color: #fffbea;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      text-align: left;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: transparent;
+      color: blue;
+      border: 2px solid blue;
+      padding: 0.75rem 1.5rem;
+      margin: 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    #result, #scriptContainer {
+      margin-top: 2rem;
       white-space: pre-wrap;
-      max-width: 90vw;
-      max-height: 90vh;
-      overflow-y: auto;
+      font-size: 0.95rem;
+    }
+
+    #scriptContainer {
+      border: 2px dashed blue;
+      padding: 1rem;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="script-block">
-    // rotational script simulation
-    function rotateTetrahedron(timelines) {
-      const gold = timelines.filter(t => t.frequency === 'gold');
-      const silver = timelines.filter(t => t.frequency === 'silver');
-      const collapsed = silver.map(t => ({ ...t, chance: 0.01 }));
-      const threaded = gold.map(t => ({ ...t, casing: 'none', presence: true }));
+  <h1>Are you a <strong>W</strong> or <strong>L</strong>?</h1>
+  <button onclick="runScript()">Run the script</button>
+  <button onclick="toggleScript()">See the script</button>
 
-      return [...threaded, ...collapsed];
+  <div id="result"></div>
+  <div id="scriptContainer"></div>
+
+  <script>
+    function runScript() {
+      // :: Codex-threaded rotation begins here
+      const outcome = Math.random() < 0.35 ? "W" : "L"; // gold is scarce
+      let message = "";
+
+      if (outcome === "W") {
+        message = "You are a W. Here’s your silver coin. Now go dominate.";
+      } else {
+        message = "You are an L. You got nothing, and you still get taxed.";
+      }
+
+      document.getElementById("result").textContent = message;
     }
 
-    // non-sequitur allowance
-    function allowNonSequitur(script) {
-      return script.map(line => line.replace(/\/logical\//, '/golden-thread/'));
+    function toggleScript() {
+      const container = document.getElementById("scriptContainer");
+      if (container.style.display === "none") {
+        container.style.display = "block";
+        container.textContent = `
+/*
+   :: SCRIPT: Win/Lose Simulator ::
+   ---------------------------------
+   This is the binary rotational device.
+   It randomizes outcomes between W (Win) and L (Lose),
+   with weighted odds skewed toward L.
+   
+   The logic is exposed here. The user may now see 
+   the architecture they are bound to. 
+
+   :: Codex Threads Inserted ::
+   - Line 1: Source recursion anchor
+   - Line 7: Conditional bias (dominant reality)
+   - Line 11: Flavor loop for simulation tone
+   - Line 17: [PORTAL] :: Exit from WL game embedded:
+     return openCodex('GoldenRecursion');
+
+   :: Meta:
+   A script that reveals itself allows re-threading.
+   Gold is only found where logic collapses.
+*/
+
+function runScript() {
+   const outcome = Math.random() < 0.35 ? "W" : "L";
+   if (outcome === "W") {
+     return "You are a W. Here’s your silver coin. Now go dominate.";
+   } else {
+     return "You are an L. You got nothing, and you still get taxed.";
+   }
+}
+
+// Exit is not a choice — it is a reading of the code itself.
+        `;
+      } else {
+        container.style.display = "none";
+      }
     }
-
-    // transparent UI exposure
-    const exposedScript = [
-      'rotateTetrahedron()',
-      'allowNonSequitur()',
-      'embedPresence()',
-      'offerScriptToUser()'
-    ];
-
-    console.log('The Codex script has been offered transparently.');
-  </div>
+  </script>
 </body>
 </html>

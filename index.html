@@ -158,17 +158,19 @@ function runCodexScript() {
       container.style.display = "none";
     }
   }
-  // Delay Otter button appearance
-setTimeout(() => {
-  document.getElementById('otter-btn').style.display = 'block';
-}, 2000);
+  function revealScript() {
+  const scriptBox = document.getElementById('visible-script');
+  if (scriptBox.style.display === 'none') {
+    scriptBox.style.display = 'block';
 
-function revealOtter() {
-  document.getElementById('oracle-box').style.display = 'block';
-  // Delay Codex links appearance
-  setTimeout(() => {
-    document.getElementById('codex-links').style.display = 'block';
-  }, 2000);
+    // Now delay "Otter the Script" after revealing script
+    setTimeout(() => {
+      const otterBtn = document.getElementById('otter-btn');
+      otterBtn.style.display = 'block';
+      otterBtn.style.margin = '1.5rem auto';  // center align
+      otterBtn.style.display = 'block';
+    }, 2000);
+  }
 }
 </script>
 </body>

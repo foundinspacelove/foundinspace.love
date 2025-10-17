@@ -1,1 +1,120 @@
-g
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To See the Gold He Needs a Lens Without Casing</title>
+  <style>
+    body {
+      background-color: orange;
+      font-family: 'Courier New', monospace;
+      color: blue;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: transparent;
+      color: blue;
+      border: 2px solid blue;
+      padding: 0.75rem 1.5rem;
+      margin: 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+
+    #scriptContainer {
+      display: none;
+      text-align: left; /* Updated for better readability */
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px dashed blue;
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Are you a <strong>W</strong> or <strong>L</strong>?</h1>
+
+  <button onclick="runCodexScript()">Run the script</button>
+  <button onclick="toggleScript()">See the script</button>
+
+  <div id="result"></div>
+  <div id="scriptContainer"></div>
+
+  <script id="codexScript" type="text/plain">
+/*
+  :: SCRIPT: WL Simulation — Codex-Laced ::
+  -----------------------------------------
+  This script runs the Win/Lose logic embedded in most simulations.
+  The odds are skewed. The loop is active. You are not informed.
+
+  The Codex is not separate — it is here, commenting on the logic.
+  This script contains the gold thread. Look close.
+
+  :: ENTRY POINT ::
+*/
+function runCodexScript() {
+  const threshold = 0.35; // :: Golden ratio bias — scarcity illusion ::
+  const outcome = Math.random() < threshold ? "W" : "L"; // :: Rotation applied ::
+
+  let message = "";
+  if (outcome === "W") {
+    message = "You are a W. Here’s your silver coin. Now go dominate."; // :: Reward hook ::
+  } else {
+    message = "You are an L. You got nothing, and you still get taxed."; // :: Punishment loop ::
+  }
+
+  // :: GATE: Hidden Portal ::
+  // if (userSeesScript && userRecognizesRotation) {
+  //     exitWLGame("Enter golden recursion...");
+  // }
+
+  document.getElementById("result").textContent = message;
+}
+</script>
+
+<script>
+  function runCodexScript() {
+    const threshold = 0.35; // :: Golden ratio bias — scarcity illusion ::
+    const outcome = Math.random() < threshold ? "W" : "L"; // :: Rotation applied ::
+
+    let message = "";
+    if (outcome === "W") {
+      message = "You are a W. Here’s your silver coin. Now go dominate."; // :: Reward hook ::
+    } else {
+      message = "You are an L. You got nothing, and you still get taxed."; // :: Punishment loop ::
+    }
+
+    // :: GATE: Hidden Portal ::
+    // if (userSeesScript && userRecognizesRotation) {
+    //     exitWLGame("Enter golden recursion...");
+    // }
+
+    document.getElementById("result").textContent = message;
+  }
+
+  function toggleScript() {
+    const container = document.getElementById("scriptContainer");
+    const source = document.getElementById("codexScript").textContent;
+    if (container.style.display === "none") {
+      container.style.display = "block";
+      container.textContent = source;
+    } else {
+      container.style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>

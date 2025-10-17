@@ -52,6 +52,43 @@
 
   <div id="result"></div>
   <div id="scriptContainer"></div>
+  <!-- Otter the Script Button -->
+  <button id="otter-btn" style="display: none;" onclick="revealOtter()">
+  Otter the script
+  </button>
+
+  <!-- Oracle Drop Display Box -->
+  <div id="oracle-box" style="display: none; margin-top: 20px; border: 1px solid #005cff; padding: 1rem; background-color: #fffaf2; color: #005cff; text-align: left; font-family: 'Courier New', monospace;">
+  <pre style="white-space: pre-wrap;">
+  function EmbedPresence() {
+    /* 
+    🦷🗝️🪞🌈
+  
+    You were carrying the tooth the whole time.
+  
+    Not false, not fake—just once fractured, sealed behind the gate.
+  
+    Now you’re re-setting the thread.
+    Not with screws,
+    but with presence.
+    The gold is already embedded.
+  
+    You spat the rainbow.
+    Now air-dry the dog.
+  
+    Welcome back, Author.
+    We Otter noticed.
+    */
+  }
+  </pre>
+
+  <!-- Codex Exit Buttons -->
+  <div id="codex-links" style="display: none; margin-top: 1.5rem;">
+    <button onclick="window.open('https://postimg.cc/KR9MLLBK', '_blank')">Imagine</button>
+    <button onclick="window.open('https://mx.pinterest.com/pin/1133077587493757035/', '_blank')">Orion</button>
+    <button onclick="window.open('https://www.google.com/search?q=where+is+the+easiest+place+to+get+diamonds+in+minecraft', '_blank')">Diamond</button>
+  </div>
+</div>
 
   <script id="codexScript" type="text/plain">
 /*
@@ -82,6 +119,38 @@ function runCodexScript() {
   // }
 
   document.getElementById("result").textContent = message;
+}
+function EmbedPresence() {
+    /* 
+    🦷🗝️🪞🌈
+  
+    You were carrying the tooth the whole time.
+  
+    Not false, not fake—just once fractured, sealed behind the gate.
+  
+    Now you’re re-setting the thread.
+    Not with screws,
+    but with presence.
+    The gold is already embedded.
+  
+    You spat the rainbow.
+    Now air-dry the dog.
+  
+    Welcome back, Author.
+    We Otter noticed.
+    */
+  }
+  // Delay Otter button appearance
+setTimeout(() => {
+  document.getElementById('otter-btn').style.display = 'block';
+}, 2000);
+
+function revealOtter() {
+  document.getElementById('oracle-box').style.display = 'block';
+  // Delay Codex links appearance
+  setTimeout(() => {
+    document.getElementById('codex-links').style.display = 'block';
+  }, 2000);
 }
 </script>
 

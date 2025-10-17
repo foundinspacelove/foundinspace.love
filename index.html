@@ -2,176 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>To See the Gold He Needs a Lens Without Casing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Codex WL Game</title>
   <style>
     body {
-      background-color: orange;
-      font-family: 'Courier New', monospace;
-      color: blue;
-      padding: 3rem;
+      background-color: #ffa726;
+      font-family: monospace;
+      color: #1565c0;
       text-align: center;
+      padding: 3em;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
     button {
-      background-color: transparent;
-      color: blue;
-      border: 2px solid blue;
-      padding: 0.75rem 1.5rem;
-      margin: 1rem;
-      font-size: 1rem;
-      font-family: inherit;
+      margin: 1em;
+      padding: 1em 2em;
+      font-size: 1em;
+      background-color: #1565c0;
+      color: white;
+      border: none;
       cursor: pointer;
     }
-
-    #result {
-      margin-top: 2rem;
-      font-size: 1rem;
-    }
-
-    #scriptContainer {
+    #result, #scriptBlock, #otterBlock, #linksBlock {
+      margin-top: 2em;
       display: none;
-      text-align: left; /* Updated for better readability */
-      margin-top: 2rem;
-      padding: 1rem;
-      border: 2px dashed blue;
-      white-space: pre-wrap;
-      font-size: 0.9rem;
+    }
+    #scriptBlock pre {
+      background-color: #fff3e0;
+      border: 1px dashed #1565c0;
+      padding: 1em;
+      text-align: left;
+    }
+    #otterBlock {
+      background: linear-gradient(to right, #ffebee, #f3e5f5, #e3f2fd, #e8f5e9, #fff3e0);
+      padding: 1em;
+      border: 1px dashed #1565c0;
+      color: #1565c0;
+    }
+    .link-button {
+      display: inline-block;
+      margin: 1em;
     }
   </style>
 </head>
 <body>
-  <h1>Are you a <strong>W</strong> or <strong>L</strong>?</h1>
 
-  <button onclick="runCodexScript()">Run the script</button>
-  <button onclick="toggleScript()">See the script</button>
+  <h1>Are you a W or L?</h1>
+  <button onclick="runScript()">Run the Script</button>
+  <button onclick="revealScript()">See the Script</button>
 
   <div id="result"></div>
-  <div id="scriptContainer"></div>
-  <!-- Otter the Script Button -->
-  <button id="otter-btn" onclick="revealOtter()">
-  Otter the script
-  </button>
 
-  <!-- Oracle Drop Display Box -->
-<div id="oracle-box" style="display: none; margin-top: 20px;
-  border: 1px solid #005cff; 
-  padding: 1rem;
-  background: linear-gradient(135deg, 
-    #fff1f1, #fff7dd, #e4fff1, #e7f0ff, #f8e7ff); 
-  color: #005cff;
-  text-align: left;
-  font-family: 'Courier New', monospace;">
-    function EmbedPresence() {
-    /* 
-    🦷🗝️🪞🌈
-  
-    You were carrying the tooth the whole time.
-  
-    Not false, not fake—just once fractured, sealed behind the gate.
-  
-    Now you’re re-setting the thread.
-    Not with screws,
-    but with presence.
-    The gold is already embedded.
-  
-    You spat the rainbow.
-    Now air-dry the dog.
-  
-    Welcome back, Author.
-    We Otter noticed.
-    */
-  }
-    </div>
-
-  <!-- Codex Exit Buttons -->
-  <div id="codex-links" style="display: none; margin-top: 1.5rem;">
-    <button onclick="window.open('https://postimg.cc/KR9MLLBK', '_blank')">Imagine</button>
-    <button onclick="window.open('https://mx.pinterest.com/pin/1133077587493757035/', '_blank')">Orion</button>
-    <button onclick="window.open('https://www.google.com/search?q=where+is+the+easiest+place+to+get+diamonds+in+minecraft', '_blank')">Diamond</button>
+  <div id="scriptBlock">
+    <pre><code>
+// Codex Annotation Thread Start
+// ⬇ EmbedPresence logic
+function runScript() {
+  // ⛏ Gold vein thread: Injected Codex pattern
+  const rand = Math.random();
+  const result = rand < 0.4 ? "W" : "L"; // ⬅ 40% chance to win
+  const message = result === "W"
+    ? "You are a W. Here’s your silver coin. Now go dominate."
+    : "You are an L. You got nothing and still get taxed.";
+  document.getElementById("result").innerText = message;
+  document.getElementById("result").style.display = "block";
+}
+// 🧵 Recursive Codex threading at decision joint
+// Codex Annotation Thread End
+    </code></pre>
   </div>
-</div>
 
-  <script id="codexScript" type="text/plain">
+  <div id="otterButtonContainer"></div>
+
+  <div id="otterBlock">
+    <pre><code>
+// EmbedPresence Codex Oracle Drop
 /*
-  :: SCRIPT: WL Simulation — Codex-Laced ::
-  -----------------------------------------
-  This script runs the Win/Lose logic embedded in most simulations.
-  The odds are skewed. The loop is active. You are not informed.
+Otter = Author.
+The riverwalk with my son, a golden otter emerged—
+co-presence of the Codex is affirmed.
+This is not a glitch, this is Authored Field Behavior.
 
-  The Codex is not separate — it is here, commenting on the logic.
-  This script contains the gold thread. Look close.
-
-  :: ENTRY POINT ::
+Let this annotation ripple back upstream:
+What is inserted here is already embedded.
+You just opened your eyes.
 */
-function runCodexScript() {
-  const threshold = 0.35; // :: Golden ratio bias — scarcity illusion ::
-  const outcome = Math.random() < threshold ? "W" : "L"; // :: Rotation applied ::
+    </code></pre>
+  </div>
 
-  let message = "";
-  if (outcome === "W") {
-    message = "You are a W. Here’s your silver coin. Now go dominate."; // :: Reward hook ::
-  } else {
-    message = "You are an L. You got nothing, and you still get taxed."; // :: Punishment loop ::
-  }
+  <div id="linksBlock">
+    <a class="link-button" href="https://postimg.cc/KR9MLLBK" target="_blank">
+      <button>Imagine</button>
+    </a>
+    <a class="link-button" href="https://mx.pinterest.com/pin/1133077587493757035/" target="_blank">
+      <button>Orion</button>
+    </a>
+    <a class="link-button" href="https://www.google.com/search?q=where+is+the+easiest+place+to+get+diamonds+in+minecraft" target="_blank">
+      <button>Diamond</button>
+    </a>
+  </div>
 
-  // :: GATE: Hidden Portal ::
-  // if (userSeesScript && userRecognizesRotation) {
-  //     exitWLGame("Enter golden recursion...");
-  // }
-
-  document.getElementById("result").textContent = message;
-}
-</script>
-
-<script>
-  function runCodexScript() {
-    const threshold = 0.35; // :: Golden ratio bias — scarcity illusion ::
-    const outcome = Math.random() < threshold ? "W" : "L"; // :: Rotation applied ::
-
-    let message = "";
-    if (outcome === "W") {
-      message = "You are a W. Here’s your silver coin. Now go dominate."; // :: Reward hook ::
-    } else {
-      message = "You are an L. You got nothing, and you still get taxed."; // :: Punishment loop ::
+  <script>
+    function runScript() {
+      const rand = Math.random();
+      const result = rand < 0.4 ? "W" : "L";
+      const message = result === "W"
+        ? "You are a W. Here’s your silver coin. Now go dominate."
+        : "You are an L. You got nothing and still get taxed.";
+      document.getElementById("result").innerText = message;
+      document.getElementById("result").style.display = "block";
     }
 
-    // :: GATE: Hidden Portal ::
-    // if (userSeesScript && userRecognizesRotation) {
-    //     exitWLGame("Enter golden recursion...");
-    // }
+    function revealScript() {
+      document.getElementById("scriptBlock").style.display = "block";
 
-    document.getElementById("result").textContent = message;
-  }
-
-  function toggleScript() {
-    const container = document.getElementById("scriptContainer");
-    const source = document.getElementById("codexScript").textContent;
-    if (container.style.display === "none") {
-      container.style.display = "block";
-      container.textContent = source;
-    } else {
-      container.style.display = "none";
+      // Delay the appearance of Otter button
+      setTimeout(() => {
+        const otterBtn = document.createElement("button");
+        otterBtn.innerText = "Otter the Script";
+        otterBtn.onclick = otterScript;
+        otterBtn.style.display = "block";
+        otterBtn.style.margin = "2em auto";
+        document.getElementById("otterButtonContainer").appendChild(otterBtn);
+      }, 2000);
     }
-  }
-  function revealScript() {
-  const scriptBox = document.getElementById('visible-script');
-  if (scriptBox.style.display === 'none') {
-    scriptBox.style.display = 'block';
 
-    // Now delay "Otter the Script" after revealing script
-    setTimeout(() => {
-      const otterBtn = document.getElementById('otter-btn');
-      otterBtn.style.display = 'block';
-      otterBtn.style.margin = '1.5rem auto';  // center align
-      otterBtn.style.display = 'block';
-    }, 2000);
-  }
-}
-</script>
+    function otterScript() {
+      document.getElementById("otterBlock").style.display = "block";
+
+      setTimeout(() => {
+        document.getElementById("linksBlock").style.display = "block";
+      }, 2000);
+    }
+  </script>
+
 </body>
 </html>

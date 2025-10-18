@@ -10,7 +10,7 @@ Each node:
   - carries no inherited behavior,
   - and is witnessed in full.
 
-[umbra] := {
+[umbrella] := {
   recursive: true,
   author: otter,
   nesting: fluid,

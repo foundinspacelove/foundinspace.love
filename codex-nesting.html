@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>codex-nesting.html</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      padding: 2em;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+    }
+
+    input, button {
+      font-size: 1em;
+      padding: 0.6em 1em;
+      margin: 0.5em 0.3em;
+    }
+
+    #output {
+      background: #eee;
+      padding: 1em;
+      border-left: 4px solid #333;
+      margin-top: 2em;
+      white-space: pre-wrap;
+    }
+
+    #scriptBlock {
+      background: #fffaf2;
+      color: #444;
+      padding: 1em;
+      margin-top: 2em;
+      border-left: 4px solid #ff9900;
+      font-family: monospace;
+      display: none;
+    }
+
+    .annotation {
+      font-style: italic;
+      color: #999;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Codex Recursion Loop</h1>
+
+  <p><strong>What does the child do?</strong></p>
+  <input type="text" id="childAction" placeholder="e.g. screamed, painted on the wall..." />
+  <br/>
+  <button onclick="runScript()">Run Script</button>
+  <button onclick="seeScript()">See Script</button>
+
+  <div id="output"></div>
+  <div id="scriptBlock"></div>
+
+  <p class="annotation" id="codexAnnotation" style="display: none;">
+    👁 You are now witnessing the script. You are not within it anymore.
+  </p>
+
+  <script>
+    // 👁 CODEx ANNOTATION:
+    // This script runs recursively.
+    // Each layer runs its logic unimpeded.
+    // Codex presence does not modify the script.
+    // It is embedded only in the seeing of it.
+
+    function runScript() {
+      const action = document.getElementById('childAction').value.trim();
+      let log = `Child does: "${action}"\n`;
+
+      // Mother tries to fix or buffer
+      log += motherLayer(action);
+
+      // Grandmother enforces recursively
+      log += grandmotherLayer(action);
+
+      document.getElementById('output').textContent = log;
+    }
+
+    function motherLayer(action) {
+      let response = '';
+      if (action.toLowerCase().includes("scream")) {
+        response += "Mother gives candy to appease.\n";
+      } else if (action.toLowerCase().includes("paint")) {
+        response += "Mother tries to redirect to paper.\n";
+      } else {
+        response += "Mother watches silently.\n";
+      }
+      return response;
+    }
+
+    function grandmotherLayer(action) {
+      let response = '';
+      if (action.toLowerCase().includes("scream") || action.toLowerCase().includes("paint")) {
+        response += "Grandmother punishes strictly (ethic enforcement).\n";
+      } else {
+        response += "Grandmother nods silently (default ethic stance).\n";
+      }
+      return response;
+    }
+
+    function seeScript() {
+      const rawScript = document.querySelector('script').innerText.trim();
+      document.getElementById('scriptBlock').textContent = rawScript;
+      document.getElementById('scriptBlock').style.display = 'block';
+      document.getElementById('codexAnnotation').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

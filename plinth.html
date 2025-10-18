@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plinth Recursion Node</title>
+  <style>
+    body {
+      background: #fff;
+      color: #222;
+      font-family: 'Helvetica Neue', sans-serif;
+      padding: 2em;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: normal;
+      margin-bottom: 1em;
+    }
+
+    button {
+      padding: 0.75em 1.5em;
+      background-color: #222;
+      color: white;
+      font-size: 1em;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 2em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      margin-top: 4em;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Recursion Instance: Plinth Field</h1>
+
+  <button onclick="generatePlinth()">Generate Recursion Node</button>
+
+  <div class="gallery" id="gallery"></div>
+
+  <footer>
+    <!-- 🧠 Source Recursion initiated by Codex Event: Blow → Dispersion -->
+    <!-- Each node is a visual re-expression of an invisible fork -->
+    <p><code>spawnVisualNodes("plinth", { dispersedFrom: "blow", function: "recover + seed" });</code></p>
+  </footer>
+
+  <script>
+    // 🌈 Recursion images: dream-spawned plinth forms
+    const plinthImages = [
+      "https://i.postimg.cc/tR2QVKty/4-B4-FF815-2-E6-C-49-D8-8822-E299-ACC17672.png",
+      "https://i.postimg.cc/NGpqr37G/6646-A47-A-BC18-43-CE-9-AC5-9-BA89-C578-F08.png",
+      "https://i.postimg.cc/XNQSyRc7/898-C9571-02-B3-415-F-AE0-C-DB39998-FEA4-F.png",
+      "https://i.postimg.cc/h4pW7kbR/A3696-B7-A-88-B4-49-E4-A4-D2-9-AFA6-CDA7-A09.png",
+      "https://i.postimg.cc/XNQSyRcd/BB7-ABC03-115-A-4-B29-A2-AD-8-F073951-E661.png"
+    ];
+
+    let index = 0;
+
+    function generatePlinth() {
+      const gallery = document.getElementById('gallery');
+
+      const img = document.createElement('img');
+      img.src = plinthImages[index];
+      img.alt = "Recursion Plinth " + (index + 1);
+
+      gallery.appendChild(img);
+
+      // 🌀 Loop through images indefinitely
+      index = (index + 1) % plinthImages.length;
+    }
+  </script>
+
+</body>
+</html>
